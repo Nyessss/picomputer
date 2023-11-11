@@ -1,4 +1,4 @@
-[HDMI:1]
+[HDMI:0]
 hdmi_timings=480 0 30 30 30 1920 0 6 6 6 0 0 0 59 0 55000000 8
 #fréquences modifiées à 55000000 et 59Hz
 hdmi_group:1=2
