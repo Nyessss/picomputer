@@ -1,0 +1,76 @@
+Xft.dpi: 144
+
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgba
+
+Xcursor.size: 32
+
+! URxvt
+URxvt*geometry:                       92x24
+URxvt*loginShell:                     true
+URxvt*skipScroll:                     true
+URxvt*scrollBar:                      false
+URxvt*intensityStyles:                false
+
+URxvt.perl-ext-common: default,keyboard-select,font-size
+
+URxvt.keysym.Control-Up:         \033[1;5A
+URxvt.keysym.Control-Down:       \033[1;5B
+URxvt.keysym.Control-Left:       \033[1;5D
+URxvt.keysym.Control-Right:      \033[1;5C
+! scroll one line higher/lower
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
+
+! copy / paste
+! Disable ISO 14755 unicode input so we can use Ctrl-Shift bindings
+URxvt.iso14755:        false
+URxvt.iso14755_52:     false
+! Ctrl-Shift-c & Ctrl-Shift-v to copy and paste
+URxvt.keysym.C-S-0x43: eval:selection_to_clipboard
+URxvt.keysym.C-S-0x56: eval:paste_clipboard
+
+! keyboard selection mode (alt+Esc)
+! perl extension in ~/.urxvt/ext
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keyboard-select.clipboard: true
+
+! theme
+! Black Red Green Yellow Blue Magenta Cyan White
+! 0     1   2     3      4    5       6    7
+! 8     9   10    11     12   13      14   15
+
+URxvt.internalBorder:                 6
+
+URxvt*background:                     #232323
+URxvt*foreground:                     #eeeeee
+
+URxvt*color0:                         #424242
+URxvt*color1:                         #d02522
+URxvt*color2:                         #5bb95d
+URxvt*color3:                         #ff8700
+URxvt*color4:                         #2b58d0
+URxvt*color5:                         #ee4487
+URxvt*color6:                         #35bba8
+URxvt*color7:                         #eeeeee
+
+URxvt*color8:                         #424242
+URxvt*color9:                         #d02522
+URxvt*color10:                        #5bb95d
+URxvt*color11:                        #ff8700
+URxvt*color12:                        #2b58d0
+URxvt*color13:                        #ee4487
+URxvt*color14:                        #35bba8
+URxvt*color15:                        #eeeeee
+
+URxvt*cursorBlink:                    true
+URxvt*cursorColor:                    #ff8700
+
+URxvt*font:              xft:JetBrainsMono:size=11
+URxvt*boldFont:          xft:JetBrainsMono:bold:size=11
+URxvt*italicFont:        xft:JetBrainsMono:italic:size=11
+URxvt*boldItalicFont:    xft:JetBrainsMono:bolditalic:size=11

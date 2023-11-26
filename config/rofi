@@ -1,0 +1,8 @@
+configuration {
+ modi: "window,run,drun";
+ drun-display-format: "{name}";
+ run-list-command: "";
+ }
+
+
+ @theme "picomputer.rasi"

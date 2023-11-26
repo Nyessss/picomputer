@@ -1,0 +1,193 @@
+;  Polybar.
+;  https://github.com/polybar/polybar
+;      _ _____                   _           
+;  ___|_|     |___ _____ ___ _ _| |_ ___ ___ 
+; | . | |   --| . |     | . | | |  _| -_|  _|
+; |  _|_|_____|___|_|_|_|  _|___|_| |___|_|  
+; |_|                   |_|                  
+
+
+[settings]
+screenchange-reload = true
+pseudo-transparency = false
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[colors]
+background = #232323
+orange = #FF8700
+light = #EEEEEE
+dark = #6C6C6C
+
+[fonts]
+font0 = JetBrains Mono:style=Regular:size=14;2
+font1 = JetBrains Mono:style=Bold:size=14;2
+font2 = JetBrains Mono:style=Regular:size=11;2
+
+
+;  _
+; | |__   __ _ _ __ ___
+; | '_ \ / _` | '__/ __|
+; | |_) | (_| | |  \__ \
+; |_.__/ \__,_|_|  |___/
+
+[bar/top]
+enable-ipc = false
+height = 32
+width = 100%
+padding = 0
+
+background = ${colors.background}
+foreground = ${colors.orange}
+
+line-size = 4
+
+font-0 = ${fonts.font0}
+font-1 = ${fonts.font1}
+font-2 = ${fonts.font2}
+
+modules-left = i3 memory
+modules-center = xwindow
+modules-right = wlan pulseaudio pibattery time
+
+
+;  _ __ ___   ___   __| |_   _| | ___  ___
+; | '_ ` _ \ / _ \ / _` | | | | |/ _ \/ __|
+; | | | | | | (_) | (_| | |_| | |  __/\__ \
+; |_| |_| |_|\___/ \__,_|\__,_|_|\___||___/
+
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:82:...%
+label-empty = piComputer
+label-empty-font = 2
+label-empty-foreground = ${colors.orange}
+label-font = 2
+label-foreground = ${colors.light}
+
+[module/i3]
+type = internal/i3
+format = <label-state><label-mode>
+format-margin = 0
+index-sort = true
+format-font = 2
+
+enable-click = true
+reverse-scroll = false
+
+label-focused = %index%
+label-focused-background = ${colors.orange}
+label-focused-foreground = ${colors.background}
+label-focused-padding = 1
+
+label-unfocused = %index%
+label-unfocused-foreground = ${colors.orange}
+label-unfocused-background = ${colors.background}
+label-unfocused-padding = 1
+
+label-urgent = %index%
+label-urgent-padding = 1
+label-urgent-foreground = ${colors.orange}
+label-urgent-underline = ${colors.orange}
+
+label-mode = %mode%
+label-mode-padding = 1
+label-mode-marging = 0
+label-mode-font = 1
+label-mode-background = ${colors.orange}
+label-mode-foreground = ${colors.background}
+
+label-visible= %index%
+label-visible-padding = 1
+label-visible-marging = 0
+label-visible-underline = ${colors.dark}
+
+[module/music]
+type = custom/script
+label = %output:0:64:...%
+label-font = 3
+click-left = mocp -G
+click-middle = urxvt -e mocp &
+click-right = mocp -f
+format-padding = 1
+exec-if = pgrep -x mocp
+exec = ~/.picomputer/scripts/music.sh
+interval=3
+
+[module/memory]
+type = internal/memory
+interval = 5
+format = <label>
+label = %mb_free% free
+format-padding = 1
+format-font = 3
+format-foreground = ${colors.dark}
+
+[module/pibattery]
+type = custom/script
+exec = ~/.picomputer/scripts/battery.py
+tail = true
+format-padding = 1
+label-minlen = 13
+
+[module/wlan]
+type = internal/network
+interface = wlan0
+interval = 10
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-padding = 1
+label-connected = %essid:0:8:.%
+label-connected-minlen = 9 
+format-disconnected =  <label-disconnected>
+label-disconnected = ✕ WIFI OFF
+label-disconnected-minlen =  11
+format-disconnected-padding = 1
+
+ramp-signal-0 = ◌
+ramp-signal-1 = ◯
+ramp-signal-2 = ◎
+ramp-signal-3 = ◎
+ramp-signal-4 = ●
+
+[module/time]
+type = internal/date
+interval = 60
+format-margin = 0
+
+time = "%H:%M"
+date = "%Y-%m-%d"
+
+label = %date%  %time%
+label-padding = 1
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume-margin = 0
+format-volume = <ramp-volume> vol.<label-volume>
+label-volume = %percentage%
+label-volume-minlen = 4
+format-volume-alignment = center
+format-volume-padding = 1
+use-ui-max = false
+interval = 0
+
+ramp-volume-0 =  ■────
+ramp-volume-1 =  ─■───
+ramp-volume-2 =  ──■──
+ramp-volume-3 =  ───■─
+ramp-volume-4 =  ────■
+
+format-muted = <label-muted>
+label-muted = ───── vol.MUTE
+label-muted-minlen = 11
+format-muted-padding = 1
+format-muted-foreground = ${colors.background}
+format-muted-background = ${colors.orange}
+
+
+; vim:ft=dosini

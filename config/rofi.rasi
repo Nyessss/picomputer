@@ -1,0 +1,167 @@
+/* global settings and color variables */
+/* piComputer rofi theme               */
+
+* {
+   font: "JetBrains Mono Regular 16";
+
+   orange:           #ff8700;
+   red:              #ad2e24;
+   light:            #eeeeee;
+   dark1:            #232323;
+   dark2:            #6c6c6c;
+
+   background-color: @dark1;
+   border-color:     @orange;
+   text-color:       @dark2;
+   dark-text-color:  @dark2;
+   main-color:       @light;
+   highlight:        @orange;
+   urgent-color:     @red;
+   selected-color:   @orange;
+}
+
+window {
+   location: north;
+   anchor:north;
+   y-offset: 48px;
+   background-color: @background-color;
+   fullscreen: false;
+   width:800px;
+   padding: 24px;
+   border: 1px;
+   border-radius: 0;
+   border-color: @border-color;
+}
+
+listview {
+   fixed-height: false;
+   dynamic: true;
+   lines:7;
+   scrollbar: false;
+   spacing: 8px;
+   padding: 1px 0px 0px 10px;
+   margin: 0px 0px 1px 0px;
+   background-color: transparent;
+}
+
+mainbox {
+}
+
+message {
+}
+
+textbox {
+   text-color: @text-color;
+}
+
+
+element {
+   padding: 4px 10px;
+}
+
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+element-icon {
+    background-color: inherit;
+}
+
+element normal.normal {
+   padding: 0px 15px;
+   background-color: transparent;
+   text-color: @dark-text-color;
+}
+
+element normal.urgent {
+   background-color: transparent;
+   text-color: @urgent-color;
+}
+
+element normal.active {
+   background-color: transparent;
+   text-color: @main-color;
+}
+
+element selected.normal {
+    background-color: inherit;
+    text-color:       @selected-color;
+}
+
+element selected.urgent {
+    background-color: transparent;
+    text-color:       @urgent-color;
+}
+
+element selected.active {
+    background-color: transparent;
+    text-color:       @orange;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color:       @dark-text-color;
+}
+
+element alternate.urgent {
+    background-color: transparent;
+    text-color:       @urgent-color;
+}
+
+element alternate.active {
+    background-color: transparent;
+    text-color:       @main-color;
+}
+
+scrollbar {
+   background-color: @background-color;
+   handle-color: transparent;
+   handle-width: 0px;
+}
+
+mode-switcher {
+   background-color: transparent;
+}
+
+button {
+   background-color: transparent;
+   text-color:       @text-color;
+}
+
+button selected {
+    text-color:       @main-color;
+}
+
+inputbar {
+   background-color: transparent;
+   spacing: 0px;
+   children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+
+prompt {
+   padding:0px 10px;
+   background-color: transparent;
+   text-color: @highlight;
+}
+
+entry {
+   padding:0px 20px;
+   background-color:transparent;
+   text-color:@orange;
+}
+
+case-indicator {
+   padding:6px 10px;
+   text-color:@main-color;
+   background-color:transparent;
+}
+
+#textbox-prompt-colon {
+	padding:0px 0px;
+    expand:     false;
+    str:        ":";
+    margin:     0px 0.3em 0em 0em ;
+    text-color: @highlight;
+    background-color:transparent;
+}

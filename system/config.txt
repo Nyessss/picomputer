@@ -3,9 +3,9 @@
 # Some settings may impact device functionality. See link above for details
 
 # Uncomment some or all of these to enable the optional hardware interfaces
-#dtparam=i2c_arm=on
+dtparam=i2c_arm=on
 #dtparam=i2s=on
-#dtparam=spi=on
+dtparam=spi=on
 
 # Enable audio (loads snd_bcm2835)
 dtparam=audio=on
@@ -56,3 +56,7 @@ otg_mode=1
 
 [all]
 
+[picomputer]
+
+# toggle display power on
+gpio=8=op,dh
