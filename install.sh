@@ -138,12 +138,18 @@ if wtMsg "Package Updater" "Would you like to update your package database and u
   fi
 fi
 
+# sudo apt install --yes xinit xterm x11-xserver-utils xss-lock xdg-utils
+
 
 packages=$(whiptail --backtitle="$topLeftTitle" --title "Package Installation"  --ok-button "Install"  --checklist \
     "Select packages to install. Packages selected by default are needed." $menuHeight $width 7 \
     "vim" "programmer's text editor" ON \
     "xserver-xorg" "X Window System display server" ON \
     "x11-xserver-utils" "utilities for xserver" ON \
+    "xinit" "X Window System initializer" ON \
+    "xterm" "i3 install via X11" ON \
+    "xdg-utils" "i3install" ON \
+    "xss-lock" "X Window System initializer" ON \
     "xinit" "X Window System initializer" ON \
     "xdotool" "command-line X11 automation tool" ON \
     "zsh" "Z shell" ON \
@@ -153,7 +159,7 @@ packages=$(whiptail --backtitle="$topLeftTitle" --title "Package Installation"  
     "xss-lock" "use external locker as X screen saver" ON \
     "python3-pip" "package manager for Python packages" ON \
     "rxvt-unicode" "terminal emulator" ON \
-    "i3" "tiling window manager" ON \
+    "i3-wm" "tiling window manager" ON \
     "polybar" "status bars" ON \
     "dunst" "lightweight notification-daemon" ON \
     "rofi" "window switcher, run launcher" ON \
@@ -161,15 +167,15 @@ packages=$(whiptail --backtitle="$topLeftTitle" --title "Package Installation"  
     "scrot" "screen capture utility" ON \
     "feh" "image viewer" ON \
     "pulseaudio" "sound server system" ON \
-    "pulseaudio-module-bluetooth" "enables audio bluetooth devices" OFF \
-    "moc" "console audio player" OFF \
-    "cava" "console audio visualizer" OFF \
-    "qalc" "console calculator" OFF \
-    "lynx" "console browser" OFF \
-    "tty-clock" "console digital clock" OFF \
-    "cmatrix" "scrolling Matrix like screen" OFF \
-    "mpv" "light media player" OFF \
-    "moon-buggy" "console game, a buggy on the moon" OFF \
+    "pulseaudio-module-bluetooth" "enables audio bluetooth devices" ON \
+    "moc" "console audio player" ON \
+    "cava" "console audio visualizer" ON \
+    "qalc" "console calculator" ON \
+    "lynx" "console browser" ON \
+    "tty-clock" "console digital clock" ON \
+    "cmatrix" "scrolling Matrix like screen" ON \
+    "mpv" "light media player" ON \
+    "moon-buggy" "console game, a buggy on the moon" ON \
     3>&1 1>&2 2>&3)
 
 fail=false
