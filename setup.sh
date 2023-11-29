@@ -39,7 +39,7 @@ case $choice in
   [Yy])
     # Append /boot/cmdline.txt
     sudo cp /boot/cmdline.txt /boot/cmdline.txt.backup
-    sudo awk '{$0 = $0 " logo.nologo fbcon=rotate:3"} 1' /boot/cmdline.txt | sudo tee /boot/cmdline.txt >/dev/null
+    sudo awk '{$0 = $0 " video=HDMI-A-1:1920x480@60D logo.nologo fbcon=rotate:3"} 1' /boot/cmdline.txt | sudo tee /boot/cmdline.txt >/dev/null
     echo "/boot/cmdline.txt backup and updated."
     echo
     ;;
