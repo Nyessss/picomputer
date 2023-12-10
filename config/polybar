@@ -48,9 +48,9 @@ font-0 = ${fonts.font0}
 font-1 = ${fonts.font1}
 font-2 = ${fonts.font2}
 
-modules-left = i3 memory
+modules-left = i3 memory temperature
 modules-center = xwindow
-modules-right = wlan pulseaudio pibattery time
+modules-right = wlan pulseaudio time
 
 
 ;  _ __ ___   ___   __| |_   _| | ___  ___
@@ -126,7 +126,26 @@ format-padding = 1
 format-font = 3
 format-foreground = ${colors.dark}
 
+#MODULE PICOMPUTER
+[module/temperature]
+type = internal/temperature
+interval = 5
+format = <label>
+label = %mb_free% °C
+format-padding = 1
+format-font = 3
+format-foreground = ${colors.dark}
+
+#MODULE PICOMPUTER 
 [module/pibattery]
+type = cus.pytom/script
+exec = ~/.picomputer/scripts/pibattery
+tail = true
+format-padding = 1
+label-minlen = 13
+
+#MODULE QTAPED
+[module/battery]
 type = custom/script
 exec = ~/.picomputer/scripts/battery.py
 tail = true

@@ -158,6 +158,7 @@ packages=$(whiptail --backtitle="$topLeftTitle" --title "Package Installation"  
     "xclip" "clipboard" ON \
     "xss-lock" "use external locker as X screen saver" ON \
     "python3-pip" "package manager for Python packages" ON \
+    "python3" "python3" ON \
     "rxvt-unicode" "terminal emulator" ON \
     "i3-wm" "tiling window manager" ON \
     "polybar" "status bars" ON \
@@ -217,6 +218,7 @@ done
 if wtMsg "Python Packages Installation" "Would you like to install python packages needed?" "yesno"; then
   wtMsg "$defaultTitle" "Installing <adafruit_ads1x15> for battery monitoring and <pynput> to wake up screen while sleeping..." "infobox"
   echo "## Installing <adafruit_ads1x15> for battery monitoring and <pynput> to wake up screen while sleeping..." >> $installerLog
+  sudo pip3 install adafruit-circuitpython-max1704x pynput 
   sudo pip3 install adafruit_ads1x15 pynput | tee $tmpLog | tee -a $installerLog 
   # Check if there were any errors during the update
   if grep -q "ERROR:" $tmpLog 2>&1; then
